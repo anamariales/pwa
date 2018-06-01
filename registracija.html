@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Registracija</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Registracija.">
+	<meta name="author" content="Anamaria Lešnjak">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+	<div class="okvir">
+
+		<header>
+			<a href="index.html">
+				<div class="logo">
+					<h1>Lopte</h1>
+				</div>
+			</a>
+			<nav>
+				<a href="registracija.html">Registracija</a>
+				<a href="login.html">Prijava</a>
+				<a href="administrator.php">Administrator</a>
+				<a href="proizvodi.php">Proizvodi</a>
+				<a href="unos.html">Unos</a>
+				<a href="http://www.tvz.hr">TVZ</a>
+				<a href="onama.html">O nama</a>
+				<a href="index.html">Naslovnica</a>
+			</nav>
+		</header>
+
+		<main>
+			<article id="registracija">
+				<h2>Registracija</h2>
+				<form name="registracijaKorisnika" action="registracija.php" method="POST">
+					<span id="porukaIme"></span>
+					<input type="text" name="punoImeKorisnika" id="punoImeKorisnika" placeholder="Ime"/>
+					<br>
+					<span id="porukaNadimak"></span>
+					<input type="text" name="imeKorisnika" id="imeKorisnika" placeholder="Nadimak"/>
+					<br>
+					<span id="porukaLozinka"></span>
+					<input type="password" name="lozinkaKorisnika" id="lozinkaKorisnika" placeholder="Lozinka"/>
+					<br>
+					<span id="porukaLozinkaProvjera"></span>
+					<input type="password" name="lozinkaKorisnikaProvjera" id="lozinkaKorisnikaProvjera" placeholder="Ponovite lozinku"/>
+					<br>
+					<input type="submit" id="slanje" name="registracija" value="Prijava">
+				</form>
+			</article>
+		</main>
+
+		<footer>
+			<p><a href="mailto:alesnjak@tvz.hr">Anamaria Lešnjak</a> Ⓒ 2018.</p>
+		</footer>
+
+	</div>
+
+	<script type="text/javascript">
+
+		document.getElementById("slanje").onclick = function(event) {
+
+			var slanjeForme = true;
+
+			// Ime korisnika mora biti uneseno
+			var poljePunoImeKorisnika = document.getElementById("punoImeKorisnika");
+			var punoImeKorisnika = document.getElementById("punoImeKorisnika").value;
+			if (punoImeKorisnika.length == 0) {
+				slanjeForme = false;
+				poljePunoImeKorisnika.style.border="1px dashed #fff";
+				document.getElementById("porukaIme").innerHTML="Unesite ime!<br>";
+			} else {
+				poljePunoImeKorisnika.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaIme").innerHTML="";
+			}
+
+			// Nadimak korisnika mora biti unesen
+			var poljeImeKorisnika = document.getElementById("imeKorisnika");
+			var imeKorisnika = document.getElementById("imeKorisnika").value;
+			if (imeKorisnika.length == 0) {
+				slanjeForme = false;
+				poljeImeKorisnika.style.border="1px dashed #fff";
+				document.getElementById("porukaNadimak").innerHTML="Unesite nadimak!<br>";
+			} else {
+				poljeImeKorisnika.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaNadimak").innerHTML="";
+			}
+
+			// Provjera podudaranja lozinki
+			var poljeLozinkaKorisnika = document.getElementById("lozinkaKorisnika");
+			var lozinkaKorisnika = document.getElementById("lozinkaKorisnika").value;
+			var poljeLozinkaKorisnikaProvjera = document.getElementById("lozinkaKorisnikaProvjera");
+			var lozinkaKorisnikaProvjera = document.getElementById("lozinkaKorisnikaProvjera").value;
+			if (lozinkaKorisnika.length == 0 || lozinkaKorisnikaProvjera.length == 0 || lozinkaKorisnika != lozinkaKorisnikaProvjera) {
+				slanjeForme = false;
+				poljeLozinkaKorisnika.style.border="1px dashed #fff";
+				poljeLozinkaKorisnikaProvjera.style.border="1px dashed #fff";
+				document.getElementById("porukaLozinka").innerHTML="Lozinke nisu iste!<br>";
+				document.getElementById("porukaLozinkaProvjera").innerHTML="Lozinke nisu iste!<br>";
+			} else {
+				poljeLozinkaKorisnika.style.border="1px solid rgba(255,255,255,0.7)";
+				poljeLozinkaKorisnikaProvjera.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaLozinka").innerHTML="";
+				document.getElementById("porukaLozinkaProvjera").innerHTML="";
+			}
+
+			if (slanjeForme != true) {
+				event.preventDefault();
+			}
+
+		};
+
+	</script>
+
+</body>
+
+</html>

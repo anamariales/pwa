@@ -1,0 +1,336 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+body {
+	color: #fff;
+	font-size: 1.5em;
+	font-family: "Open Sans", Arial, sans-serif;
+	background-image:url("slike/basketball_PNG1102.png");
+	background-size:3%;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 45px;
+	font-weight: normal;
+	font-family:"Indie Flower", cursive;
+}
+
+a { padding: -10px;
+	color:black;
+	text-decoration: none;
+}
+
+h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.okvir {
+	width: 80%;
+	margin: 0 auto;
+	background-color:rgb(225,125,0);
+}
+
+header {
+	padding: 40px 0 75px 0;
+	margin:0 auto;
+	border-bottom: 1px solid #fff;
+	
+}
+
+.logo {
+	float: left;
+	background-image: url("slike/heder.png");
+	background-size: 30%;
+	background-repeat: no-repeat;
+	margin:5px;
+}
+
+.logo h1 {
+	padding-left: 75px;
+	margin-bottom: 5px;
+}
+
+nav {
+	width: 80%;
+	float: right;
+}
+
+nav a:link {
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+	padding: 15px 12px 20px;
+	width: auto;
+	float: right;
+}
+
+nav a:visited {
+	color: white;
+}
+
+nav a:hover {
+	opacity: 0.7;
+}
+
+main {
+	min-height: 400px;
+}
+
+article#proizvod {
+	width: 30%;
+	float: left;
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 5px;
+	margin: 0 30px 30px 0;
+}
+
+article#proizvod:hover {
+	border: 1px solid rgba(255,255,255,1);
+	cursor: pointer;
+}
+
+.slika-proizvoda {
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+	padding-top: 10px;
+}
+
+img.slika {
+	width: 100%;
+}
+
+.opis-proizvoda {
+	padding: 15px 20px 5px 20px;
+	position: relative;
+}
+
+h3.cijena {
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	right: 20px;
+	top: 15px;
+	font-weight: normal;
+	font-size: 16px;
+	opacity: 0.7;
+}
+
+p.opis {
+	clear: both;
+}
+
+footer {
+	clear: both;
+	border-top: 1px solid #fff;
+	text-align: center;
+	font-size: 20px;
+	margin:0 auto;
+	font-family:"Indie Flower", cursive;
+		
+}
+
+footer a:link {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:hover {
+	opacity: 0.7;
+}
+
+form {
+	margin: 20px 0;
+	width: 50%;
+}
+
+input[type=text] {
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 5px;
+	color: #fff;
+	background-color: transparent;
+	margin-bottom: 10px;
+}
+
+input[type=text]:focus {
+	border: 1px solid #fff;
+	outline: none;
+}
+
+input[type=text]#sifraProizvoda {
+	width: 42%;
+	margin-right: 10px;
+}
+
+input[type=text]#cijenaProizvoda {
+	width: 42%;
+}
+
+input[type=text]#imeKorisnika {
+	width: 42%;
+}
+
+input[type=text]#punoImeKorisnika {
+	width: 42%;
+}
+
+input[type=password] {
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 5px;
+	color: #fff;
+	background-color: transparent;
+	margin-bottom: 10px;
+}
+
+input[type=password]:focus {
+	border: 1px solid #fff;
+	outline: none;
+}
+
+input[type=password]#lozinkaKorisnika {
+	width: 42%;
+}
+
+input[type=password]#lozinkaKorisnikaProvjera {
+	width: 42%;
+}
+
+input[type=file] {
+	width: 42%;
+	padding: 10px;
+	font-size: 13px;
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 5px;
+	color: #fff;
+	background-color: transparent;
+	margin-bottom: 10px;
+}
+
+input[type=file]:focus {
+	border: 1px solid #fff;
+	outline: none;
+}
+
+label#arhivirajProizvod {
+	color: rgba(255,255,255,0.7);
+	font-size: 16px;
+	vertical-align: middle;;
+}
+
+input[type=submit] {
+	width: 100px;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 5px;
+	color: rgba(255,255,255,0.7);
+	background-color: transparent;
+	margin: 20px 0 0 0;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	color: #fff;
+	border: 1px solid #fff;
+}
+
+textarea {
+	width: 100%;
+	height: 90px;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 5px;
+	color: black;
+	background-color: transparent;
+	margin-bottom: 5px;
+	resize: none;
+}
+
+textarea:focus {
+	border: 1px solid #fff;
+	outline: none;
+}
+
+select {
+	width: 46.5%;
+	height: 40px;
+	font-size: 16px;
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 5px;
+	color: #fff;
+	background-color: transparent;
+	margin-bottom: 10px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 10px;
+	margin-right: 10px;
+}
+
+select:focus {
+	border: 1px solid #fff;
+	outline: none;
+}
+
+::-webkit-input-placeholder {
+	color: rgba(255,255,255,0.7);
+}
+:-moz-placeholder {
+	color: rgba(255,255,255,0.7);
+}
+::-moz-placeholder {
+	color: rgba(255,255,255,0.7);
+}
+:-ms-input-placeholder {
+	color: rgba(255,255,255,0.7);
+}
+
+@media screen and (max-width: 1200px) {
+	
+	.logo {
+		margin-left: 15px;
+	}
+
+	
+	nav {
+		width: 100%;
+		clear: both;
+		padding: 0px;
+		margin: 25px -10px;
+	}
+
+	nav a:link {
+		display: block;
+		padding: 2px 0;
+		clear: both;
+		float: left;
+	}
+
+	form {
+		width: 96.5%;
+	}
+	
+	h3.cijena {
+		position: relative;
+		top: 5px;
+		left: 0px;
+	}
+
+}
+
+@media screen and (max-width: 900px) {
+	
+	article#proizvod {
+		width: 100%;
+	}
+	
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Unos </title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Unos.">
+	<meta name="author" content="Tomislav Čukelj">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+	<div class="okvir">
+
+		<header>
+			<a href="index.html">
+				<div class="logo">
+					<h1>Lopta</h1>
+				</div>
+			</a>
+			<nav>
+				<a href="registracija.html">Registracija</a>
+				<a href="login.html">Prijava</a>
+				<a href="administrator.php">Administrator</a>
+				<a href="proizvodi.php">Proizvodi</a>
+				<a href="unos.html">Unos</a>
+				<a href="http://www.tvz.hr">TVZ</a>
+				<a href="onama.html">O nama</a>
+				<a href="index.html">Naslovnica</a>
+			</nav>
+		</header>
+
+		<main>
+			<article id="unos">
+				<h2>Unos nove lopte</h2>
+				<form name="unosProizvoda" enctype="multipart/form-data" action="skripta.php" method="POST">
+					<span id="porukaNazivProizvoda"></span>
+					<input type="text" name="nazivProizvoda" id="nazivProizvoda" placeholder="Naziv proizvoda"/>
+					<br>
+					<span id="porukaOpisProizvoda"></span>
+					<textarea name="opisProizvoda" id="opisProizvoda" placeholder="Opis proizvoda"></textarea>
+					<br>
+					<span id="porukaSifraProizvoda"></span>
+					<input type="text" name="sifraProizvoda" id="sifraProizvoda" placeholder="Šifra proizvoda"/>
+					<br>
+					<span id="porukaCijenaProizvoda"></span>
+					<input type="text" name="cijenaProizvoda" id="cijenaProizvoda" placeholder="Cijena proizvoda"/>
+					<br>
+					<span id="porukaKategorijaProizvoda"></span>
+					<select name="kategorijaProizvoda" id="kategorijaProizvoda">
+						<option value="" disabled selected>Odabir kategorije</option>
+						<option value="malaJabuka">Mala lopta</option>
+						<option value="srednjaJabuka">Srednja lopta</option>
+						<option value="velikaJabuka">Velika lopta</option>
+					</select>
+					<br>
+					<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>
+					<input type="file" name="slikaProizvoda" id="slikaProizvoda"/>
+					<br>
+					<input type="checkbox" name="arhivirajProizvod" id="arhivirajProizvod"/>
+					<label for="arhivirajProizvod">Arhiviraj proizvod</label>
+					<br>
+					<input type="submit" id="slanje" value="Pošalji">
+				</form>
+			</article>
+		</main>
+
+		<footer>
+			<p><a href="mailto:alesnjak@tvz.hr">Anamaria Lešnjak</a> Ⓒ 2018.</p>
+		</footer>
+
+	</div>
+
+	<script type="text/javascript">
+		
+		// Provjera forme prije slanja
+		document.getElementById("slanje").onclick = function(event) {
+			
+			var slanjeForme = true;
+			
+			// Naziv proizvoda (5-30 znakova)
+			var poljeNazivProizvoda = document.getElementById("nazivProizvoda");
+			var nazivProizvoda = document.getElementById("nazivProizvoda").value;
+			if (nazivProizvoda.length < 5 || nazivProizvoda.length > 30) {
+				slanjeForme = false;
+				poljeNazivProizvoda.style.border="1px dashed #fff";
+				document.getElementById("porukaNazivProizvoda").innerHTML="Naziv proizvoda mora imati između 5 i 30 znakova!";
+			} else {
+				poljeNazivProizvoda.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaNazivProizvoda").innerHTML="";
+			}
+			
+			// Opis proizvoda (10-100 znakova)
+			var poljeOpisProizvoda = document.getElementById("opisProizvoda");
+			var opisProizvoda = document.getElementById("opisProizvoda").value;
+			if (opisProizvoda.length < 5 || opisProizvoda.length > 30) {
+				slanjeForme = false;
+				poljeOpisProizvoda.style.border="1px dashed #fff";
+				document.getElementById("porukaOpisProizvoda").innerHTML="Opis proizvoda mora imati između 10 i 100 znakova!";
+			} else {
+				poljeOpisProizvoda.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaOpisProizvoda").innerHTML="";
+			}
+			
+			// Šifra proizvoda (10 znakova)
+			var poljeSifraProizvoda = document.getElementById("sifraProizvoda");
+			var sifraProizvoda = document.getElementById("sifraProizvoda").value;
+			if (sifraProizvoda.length != 10) {
+				slanjeForme = false;
+				poljeSifraProizvoda.style.border="1px dashed #fff";
+				document.getElementById("porukaSifraProizvoda").innerHTML="Šifra proizvoda mora imati imati 10 znakova!";
+			} else {
+				poljeSifraProizvoda.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaSifraProizvoda").innerHTML="";
+			}
+			
+			// Cijena mora biti unesena
+			var poljeCijenaProizvoda = document.getElementById("cijenaProizvoda");
+			var cijenaProizvoda = document.getElementById("cijenaProizvoda").value;
+			if (cijenaProizvoda.length == 0) {
+				slanjeForme = false;
+				poljeCijenaProizvoda.style.border="1px dashed #fff";
+				document.getElementById("porukaCijenaProizvoda").innerHTML="Cijena mora biti unesena!<br>";
+			} else {
+				poljeCijenaProizvoda.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaCijenaProizvoda").innerHTML="";
+			}
+			
+			// Kategorija mora biti odabrana
+			var poljeKategorijaProizvoda = document.getElementById("kategorijaProizvoda");
+			if(document.getElementById("kategorijaProizvoda").selectedIndex == 0) {
+				slanjeForme = false;
+				poljeKategorijaProizvoda.style.border="1px dashed #fff";
+				document.getElementById("porukaKategorijaProizvoda").innerHTML="Kategorija mora biti odabrana!<br>";
+			} else {
+				poljeKategorijaProizvoda.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaKategorijaProizvoda").innerHTML="";
+			}
+			
+			if (slanjeForme != true) {
+				event.preventDefault();
+			}
+			
+		};
+		
+		// Upozorenje za arhiviranje
+		document.getElementById("arhivirajProizvod").onclick = function() {
+			
+			if (document.getElementById("arhivirajProizvod").checked == true) {
+			
+				var potvrda = confirm("Jeste li sigurni da želite arhivirati proizvod?");
+				if (potvrda == false) {
+					document.getElementById("arhivirajProizvod").checked = false;
+				} else {
+					document.getElementById("arhivirajProizvod").checked = true;
+				}
+			
+			}
+			
+		};
+		
+	</script>
+
+</body>
+
+</html>

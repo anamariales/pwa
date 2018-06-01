@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Prijava</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Prijava">
+	<meta name="author" content="Anamaria Lešnjak">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+	<div class="okvir">
+
+		<header>
+			<a href="index.html">
+				<div class="logo">
+					<h1>Lopte</h1>
+				</div>
+			</a>
+			<nav>
+				<a href="registracija.html">Registracija</a>
+				<a href="login.html">Prijava</a>
+				<a href="administrator.php">Administrator</a>
+				<a href="proizvodi.php">Proizvodi</a>
+				<a href="unos.html">Unos</a>
+				<a href="http://www.tvz.hr">TVZ</a>
+				<a href="onama.html">O nama</a>
+				<a href="index.html">Naslovnica</a>
+			</nav>
+		</header>
+
+		<main>
+			<article id="prijava">
+				<h2>Prijava</h2>
+				<form name="prijavaKorisnika" action="administrator.php" method="POST">
+					<span id="porukaImeKorisnika"></span>
+					<input type="text" name="imeKorisnika" id="imeKorisnika" placeholder="Nadimak"/>
+					<br>
+					<span id="porukaLozinkaKorisnika"></span>
+					<input type="password" name="lozinkaKorisnika" id="lozinkaKorisnika" placeholder="Lozinka"/>
+					<br>
+					<input type="submit" id="slanje" name="prijava" value="Prijava">
+				</form>
+			</article>
+		</main>
+
+		<footer>
+			<p><a href="mailto:tcukelj@tvz.hr">Anamaria Lešnjak</a> Ⓒ 2018.</p>
+		</footer>
+
+	</div>
+	
+	<script type="text/javascript">
+		
+		document.getElementById("slanje").onclick = function(event) {
+			
+			var slanjeForme = true;
+			
+			// Nadimak korisnika mora biti unesen
+			var poljeImeKorisnika = document.getElementById("imeKorisnika");
+			var imeKorisnika = document.getElementById("imeKorisnika").value;
+			if (imeKorisnika.length == 0) {
+				slanjeForme = false;
+				poljeImeKorisnika.style.border="1px dashed #fff";
+				document.getElementById("porukaImeKorisnika").innerHTML="Unesite nadimak!<br>";
+			} else {
+				poljeImeKorisnika.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaImeKorisnika").innerHTML="";
+			}
+			
+			// Lozinka korisnika mora biti unesena
+			var poljeLozinkaKorisnika = document.getElementById("lozinkaKorisnika");
+			var lozinkaKorisnika = document.getElementById("lozinkaKorisnika").value;
+			if (lozinkaKorisnika.length == 0) {
+				slanjeForme = false;
+				poljeLozinkaKorisnika.style.border="1px dashed #fff";
+				document.getElementById("porukaLozinkaKorisnika").innerHTML="Unesite lozinku!<br>";
+			} else {
+				poljeLozinkaKorisnika.style.border="1px solid rgba(255,255,255,0.7)";
+				document.getElementById("porukaLozinkaKorisnika").innerHTML="";
+			}			
+			
+			if (slanjeForme != true) {
+				event.preventDefault();
+			}
+			
+		};
+		
+	</script>
+
+</body>
+
+</html>
